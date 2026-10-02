@@ -1,0 +1,1487 @@
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HO HON (हो होन) | बाल कविता आमंत्रण एवं गीत मंच</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Baloo 2, Noto Serif Devanagari, and Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Canvas Confetti for submission celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hoTeal: '#0E7A8A',
+            hoDarkTeal: '#08535E',
+            hoYellow: '#FFBE0B',
+            hoOrange: '#FB5607',
+            hoPink: '#FF006E',
+            hoPurple: '#8338EC',
+            hoBlue: '#3A86FF',
+            bgCream: '#FFFDF5',
+            darkBrown: '#2F2013'
+          },
+          fontFamily: {
+            baloo: ['"Baloo 2"', 'cursive', 'sans-serif'],
+            serifDev: ['"Noto Serif Devanagari"', 'serif'],
+            sans: ['"Poppins"', 'sans-serif']
+          },
+          keyframes: {
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-2.5deg)' },
+              '50%': { transform: 'rotate(2.5deg)' }
+            }
+          },
+          animation: {
+            'bounce-gentle': 'bounceGentle 3s ease-in-out infinite',
+            'wiggle': 'wiggle 2.5s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FFFDF5;
+      font-family: 'Baloo 2', 'Poppins', sans-serif;
+      color: #2F2013;
+    }
+    
+    .musical-bg {
+      background-image: radial-gradient(#FFBE0B 0.8px, transparent 0.8px), radial-gradient(#0E7A8A 0.8px, #FFFDF5 0.8px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    .song-card-shadow {
+      box-shadow: 0 16px 36px -8px rgba(14, 122, 138, 0.15), 0 4px 12px -2px rgba(251, 86, 7, 0.08);
+    }
+
+    .song-lyrics-bg {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FFF8E7 100%);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 7px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F3EBD9;
+      border-radius: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #FB5607;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between musical-bg custom-scrollbar selection:bg-hoYellow selection:text-hoDarkTeal">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-hoOrange via-hoPink to-hoPurple text-white py-2 px-4 text-center text-xs sm:text-sm font-semibold tracking-wide shadow-sm flex items-center justify-center gap-2">
+    <span class="animate-bounce-gentle text-base">🎶</span>
+    <span>बाल रचनाकारों का स्वागत है! आपकी कविता बनेगी <strong>HO HON यूट्यूब चैनल</strong> का अगला लोकप्रिय बाल गीत।</span>
+    <span class="animate-bounce-gentle text-base">🌟</span>
+  </div>
+
+  <!-- Header / Navigation Bar with Permanent HO HON Mascot Logo -->
+  <header class="bg-white/95 backdrop-blur-md border-b-2 border-amber-200 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-2.5 sm:px-6 flex items-center justify-between">
+      
+      <!-- Brand Logo & Name with Embedded Mascot SVG Container -->
+      <div class="flex items-center space-x-3">
+        <div class="relative group cursor-pointer" onclick="document.getElementById('logoFileInput').click()" title="लोगो बदलने के लिए क्लिक करें">
+          <!-- Mascot Container for Header -->
+          <div class="mascot-display-header w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center filter drop-shadow-md transform group-hover:scale-105 transition-transform duration-300">
+            <!-- Inbuilt SVG renders here -->
+          </div>
+          <span class="absolute -bottom-1 -right-1 bg-hoOrange text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow group-hover:block hidden">
+            <i class="fa-solid fa-camera"></i>
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-hoDarkTeal tracking-wide leading-none">
+              HO HON <span class="text-hoOrange">(हो होन)</span>
+            </h1>
+            <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm">
+              <i class="fa-solid fa-play text-[8px]"></i> Kids Channel
+            </span>
+          </div>
+          <p class="text-xs text-stone-500 font-sans mt-0.5">बाल कविता, प्रेरणादायक कहानियाँ एवं संगीतमय रचना संसार</p>
+        </div>
+      </div>
+      
+      <!-- Actions: Upload Custom Logo & WhatsApp Link & History -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Logo Upload Quick Trigger -->
+        <button onclick="document.getElementById('logoFileInput').click()" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-stone-800 border border-amber-300 text-xs font-semibold transition" title="अपनी फ़ोटो या 1000335746.png चुनें">
+          <i class="fa-solid fa-camera text-hoOrange"></i>
+          <span>लोगो अपलोड</span>
+        </button>
+
+        <a href="https://wa.me/918210516739" target="_blank" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-300 text-xs font-semibold transition">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+          <span>8210516739</span>
+        </a>
+
+        <button id="viewHistoryBtn" class="px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full bg-hoTeal text-white hover:bg-hoDarkTeal transition flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-list-check"></i>
+          <span class="hidden sm:inline">मेरी प्रविष्टियां</span>
+          <span id="savedCountBadge" class="bg-hoYellow text-hoDarkTeal font-bold rounded-full px-2 py-0.2 text-[10px] hidden">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hidden File Input for Custom Mascot/Logo Image -->
+  <input type="file" id="logoFileInput" accept="image/*" class="hidden">
+
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:px-6 flex-grow w-full">
+    
+    <!-- Hero Banner with Cartoon Mascot & Elements -->
+    <div class="text-center relative max-w-3xl mx-auto mb-10">
+      
+      <!-- Prominent Mascot in Hero Banner -->
+      <div class="flex flex-col items-center justify-center mb-3">
+        <div class="relative inline-block cursor-pointer group" onclick="document.getElementById('logoFileInput').click()" title="लोगो बदलने के लिए क्लिक करें">
+          <!-- Mascot Container for Hero -->
+          <div class="mascot-display-hero w-36 h-32 sm:w-44 sm:h-36 flex items-center justify-center filter drop-shadow-xl animate-wiggle">
+            <!-- Inbuilt SVG renders here -->
+          </div>
+          <span class="absolute -top-2 -right-4 bg-hoYellow text-hoDarkTeal text-[10px] sm:text-xs font-extrabold px-2.5 py-1 rounded-full border-2 border-white shadow transform rotate-12">
+            ✨ बाल गीत मंच ✨
+          </span>
+          <div class="opacity-0 group-hover:opacity-100 transition absolute inset-0 bg-black/20 rounded-full flex items-center justify-center text-white text-xs font-sans font-bold">
+            <i class="fa-solid fa-camera mr-1"></i> बदलें
+          </div>
+        </div>
+
+        <!-- Optional logo customizer badge -->
+        <div class="mt-2 flex items-center gap-2">
+          <button onclick="document.getElementById('logoFileInput').click()" class="text-[11px] font-sans text-stone-600 bg-white/80 hover:bg-white px-2.5 py-1 rounded-full border border-stone-300 shadow-sm flex items-center gap-1 transition">
+            <i class="fa-solid fa-arrow-up-from-bracket text-hoOrange"></i>
+            <span>डिवाइस से मूल लोगो (1000335746.png) अपलोड करें</span>
+          </button>
+          <button id="resetLogoBtn" class="text-[11px] font-sans text-stone-400 hover:text-red-500 hidden underline">
+            डिफ़ॉल्ट करें
+          </button>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-100 text-hoDarkTeal text-xs sm:text-sm font-bold border border-amber-300 shadow-sm mb-3">
+        <i class="fa-solid fa-guitar text-hoOrange"></i>
+        <span>बाल गीत आमंत्रण कार्यक्रम</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-hoOrange animate-ping"></span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-hoDarkTeal leading-tight">
+        बच्चों के लिए लिखें प्यारी कविता, <br>
+        <span class="bg-gradient-to-r from-hoOrange via-hoPink to-hoPurple bg-clip-text text-transparent">
+          हम बनायेंगे उसका खूबसूरत वीडियो गीत!
+        </span>
+      </h2>
+
+      <p class="text-stone-600 text-sm sm:text-base mt-3 max-w-2xl mx-auto font-sans leading-relaxed">
+        <strong>HO HON (हो होन) यूट्यूब चैनल</strong> आपके द्वारा रचित बाल कविता को एक सुरम्य संगीत, मनमोहक गायन और 2D एनीमेशन वीडियो में ढालेगा और चैनल पर आपके नाम के साथ प्रसारित करेगा।
+      </p>
+
+      <!-- 4-Step Process Guide Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+        <div class="bg-white p-3.5 rounded-2xl border-2 border-sky-100 shadow-sm text-center relative overflow-hidden group hover:border-sky-300 transition">
+          <div class="w-10 h-10 mx-auto rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="fa-solid fa-pen-fancy"></i>
+          </div>
+          <span class="text-[11px] font-bold text-sky-600 uppercase tracking-wider block">चरण १</span>
+          <h4 class="font-bold text-xs sm:text-sm text-stone-800">कविता भेजें</h4>
+          <p class="text-[11px] text-stone-500 font-sans mt-0.5">यहाँ फॉर्म में अपनी कविता लिखें</p>
+        </div>
+
+        <div class="bg-white p-3.5 rounded-2xl border-2 border-amber-100 shadow-sm text-center relative overflow-hidden group hover:border-amber-300 transition">
+          <div class="w-10 h-10 mx-auto rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wider block">चरण २</span>
+          <h4 class="font-bold text-xs sm:text-sm text-stone-800">संगीत व गायन</h4>
+          <p class="text-[11px] text-stone-500 font-sans mt-0.5">मांदर, बाँसुरी व बाल सुरीली धुन</p>
+        </div>
+
+        <div class="bg-white p-3.5 rounded-2xl border-2 border-purple-100 shadow-sm text-center relative overflow-hidden group hover:border-purple-300 transition">
+          <div class="w-10 h-10 mx-auto rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <span class="text-[11px] font-bold text-purple-600 uppercase tracking-wider block">चरण ३</span>
+          <h4 class="font-bold text-xs sm:text-sm text-stone-800">कार्टून एनीमेशन</h4>
+          <p class="text-[11px] text-stone-500 font-sans mt-0.5">रंग-बिरंगे पात्र व आकर्षक वीडियो</p>
+        </div>
+
+        <div class="bg-white p-3.5 rounded-2xl border-2 border-red-100 shadow-sm text-center relative overflow-hidden group hover:border-red-300 transition">
+          <div class="w-10 h-10 mx-auto rounded-full bg-red-100 text-red-600 flex items-center justify-center text-lg mb-2 group-hover:scale-110 transition">
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <span class="text-[11px] font-bold text-red-600 uppercase tracking-wider block">चरण ४</span>
+          <h4 class="font-bold text-xs sm:text-sm text-stone-800">YouTube पर रिलीज</h4>
+          <p class="text-[11px] text-stone-500 font-sans mt-0.5">कवि के नाम-क्रेडिट के साथ प्रसारण</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN: The Interactive Submission Form -->
+      <section class="lg:col-span-7 bg-white rounded-3xl border-2 border-amber-200/80 p-6 sm:p-8 song-card-shadow relative overflow-hidden">
+        
+        <div class="absolute -top-10 -right-10 w-28 h-28 bg-hoYellow/20 rounded-full pointer-events-none"></div>
+
+        <form id="submissionForm" class="space-y-7 relative" onsubmit="return false;">
+          
+          <!-- PART 1: रचनाकार की जानकारी -->
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 mb-4 border-b-2 border-amber-100">
+              <span class="w-8 h-8 rounded-xl bg-hoOrange text-white flex items-center justify-center font-bold text-sm shadow">१</span>
+              <h3 class="text-xl font-bold text-hoDarkTeal">रचनाकार का परिचय (Poet's Info)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-sans">
+              <!-- Name -->
+              <div class="space-y-1">
+                <label for="poetName" class="block font-semibold text-stone-800">
+                  रचनाकार का पूरा नाम <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-stone-400">
+                    <i class="fa-regular fa-user"></i>
+                  </span>
+                  <input type="text" id="poetName" required
+                    placeholder="उदा. बिरसा मुर्मू / अनीता शर्मा"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                </div>
+              </div>
+
+              <!-- Pen Name / Takhalus -->
+              <div class="space-y-1">
+                <label for="penName" class="block font-semibold text-stone-800">
+                  उपनाम / कलम नाम <span class="text-xs text-stone-500 font-normal">(यदि कोई हो)</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-stone-400">
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </span>
+                  <input type="text" id="penName"
+                    placeholder="उदा. 'बालमित्र'"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                </div>
+              </div>
+
+              <!-- WhatsApp Number -->
+              <div class="space-y-1">
+                <label for="whatsappNum" class="block font-semibold text-stone-800">
+                  WhatsApp नंबर <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-emerald-600">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </span>
+                  <input type="tel" id="whatsappNum" required
+                    placeholder="उदा. 9876543210"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="space-y-1">
+                <label for="poetEmail" class="block font-semibold text-stone-800">
+                  ईमेल पता <span class="text-xs text-stone-500 font-normal">(वैकल्पिक)</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-stone-400">
+                    <i class="fa-regular fa-envelope"></i>
+                  </span>
+                  <input type="email" id="poetEmail"
+                    placeholder="example@gmail.com"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                </div>
+              </div>
+
+              <!-- City & State -->
+              <div class="sm:col-span-2 space-y-1">
+                <label for="poetCity" class="block font-semibold text-stone-800">
+                  ज़िला / शहर व राज्य <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-rose-500">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </span>
+                  <input type="text" id="poetCity" required
+                    placeholder="उदा. चाईबासा / जमशेदपुर, झारखंड"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PART 2: बाल कविता का विवरण -->
+          <div>
+            <div class="flex items-center gap-2.5 pb-2.5 mb-4 border-b-2 border-amber-100">
+              <span class="w-8 h-8 rounded-xl bg-hoTeal text-white flex items-center justify-center font-bold text-sm shadow">२</span>
+              <h3 class="text-xl font-bold text-hoDarkTeal">बाल कविता का विवरण (Poem Details)</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-sans">
+              <!-- Poem Title -->
+              <div class="sm:col-span-2 space-y-1">
+                <label for="poemTitle" class="block font-semibold text-stone-800">
+                  कविता का प्यारा शीर्षक (Poem Title) <span class="text-red-500">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-amber-500">
+                    <i class="fa-solid fa-heading"></i>
+                  </span>
+                  <input type="text" id="poemTitle" required
+                    placeholder="उदा. चंदा मामा की सैर / तितली रानी / जंगल का मेला"
+                    class="w-full pl-9 pr-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white font-semibold text-stone-800 transition">
+                </div>
+              </div>
+
+              <!-- Theme / Category -->
+              <div class="space-y-1">
+                <label for="poemTheme" class="block font-semibold text-stone-800">
+                  विषय / भाव <span class="text-red-500">*</span>
+                </label>
+                <select id="poemTheme" required
+                  class="w-full px-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                  <option value="प्रकृति, पशु और पक्षी">🐦 प्रकृति, पशु और पक्षी</option>
+                  <option value="लोरी व मीठी नींद">🌙 लोरी व मीठी नींद</option>
+                  <option value="खेल-कूद व मस्ती">⚽ खेल-कूद व बचपन की मस्ती</option>
+                  <option value="सीख, ज्ञान व विज्ञान">💡 सीख, ज्ञान व संस्कार</option>
+                  <option value="त्यौहार, मांदर व लोक-रंग">🥁 त्यौहार, मांदर व लोक-रंग</option>
+                  <option value="हास्य व चुलबुली कविता">😄 हास्य व गुदगुदाने वाली</option>
+                  <option value="अन्य बाल विषय">🎈 अन्य बाल विषय</option>
+                </select>
+              </div>
+
+              <!-- Language / Dialect Selection -->
+              <div class="space-y-1">
+                <label for="poemLang" class="block font-semibold text-stone-800">
+                  भाषा / बोली <span class="text-red-500">*</span>
+                </label>
+                <select id="poemLang" required
+                  class="w-full px-3 py-2.5 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+                  <option value="हिंदी (सरल बाल भाषा)">हिंदी (सरल बाल भाषा)</option>
+                  <option value="हो भाषा (Ho Language / वारंग क्षिति)">हो भाषा (Ho Language / वारंग क्षिति)</option>
+                  <option value="संताली (Santali)">संताली (Santali)</option>
+                  <option value="मुंडारी (Mundari)">मुंडारी (Mundari)</option>
+                  <option value="नागपुरी / सादरी">नागपुरी / सादरी</option>
+                  <option value="द्विभाषी (हिंदी + हो शब्द)">द्विभाषी (हिंदी + हो शब्द)</option>
+                </select>
+              </div>
+
+              <!-- Musical Beats / Instrument Suggestions -->
+              <div class="sm:col-span-2 space-y-1">
+                <label for="musicalNotes" class="block font-semibold text-stone-800">
+                  संगीत या धुन का कोई सुझाव? <span class="text-xs text-stone-500 font-normal">(जैसे: मांदर की थाप, बाँसुरी, ढोलक, तेज धुन आदि)</span>
+                </label>
+                <input type="text" id="musicalNotes"
+                  placeholder="उदा. मांदर की हल्की थाप और बाँसुरी की मीठी धुन के साथ..."
+                  class="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 transition">
+              </div>
+            </div>
+          </div>
+
+          <!-- PART 3: कविता की पंक्तियाँ -->
+          <div>
+            <div class="flex items-center justify-between pb-2.5 mb-3 border-b-2 border-amber-100">
+              <div class="flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-xl bg-hoPurple text-white flex items-center justify-center font-bold text-sm shadow">३</span>
+                <h3 class="text-xl font-bold text-hoDarkTeal">कविता की पंक्तियाँ (Poem Lyrics)</h3>
+              </div>
+              
+              <div class="flex items-center gap-1">
+                <button type="button" id="btnCenterText" title="मध्य संरेखित" class="p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 transition text-xs">
+                  <i class="fa-solid fa-align-center"></i>
+                </button>
+                <button type="button" id="btnLeftText" title="बायाँ संरेखित" class="p-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-600 transition text-xs">
+                  <i class="fa-solid fa-align-left"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <textarea id="poemLyrics" rows="9" required
+                placeholder="यहाँ अपनी बाल कविता सुंदर पंक्तियों में दर्ज करें...&#10;&#10;उदा.&#10;तितली उड़ी बस पर चढ़ी,&#10;सीट ना मिली तो रोने लगी।&#10;ड्राइवर ने बोला आजा मेरे पास,&#10;तितली बोली ना बाबा ना, मेरा घर है पास!"
+                class="w-full p-4 bg-stone-50 border-2 border-stone-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-hoTeal focus:bg-white text-stone-800 text-base leading-relaxed custom-scrollbar font-serifDev resize-y"></textarea>
+
+              <!-- Counter bar -->
+              <div class="flex flex-wrap items-center justify-between text-xs text-stone-500 font-sans px-1">
+                <div class="flex items-center gap-4">
+                  <span>पंक्तियाँ: <strong id="lyricsLines" class="text-hoOrange font-bold font-baloo text-sm">०</strong></span>
+                  <span>शब्द: <strong id="lyricsWords" class="text-hoOrange font-bold font-baloo text-sm">०</strong></span>
+                  <span>वर्ण: <strong id="lyricsChars" class="text-hoOrange font-bold font-baloo text-sm">०</strong></span>
+                </div>
+                <div class="text-emerald-700 font-medium flex items-center gap-1">
+                  <i class="fa-solid fa-sparkles text-hoYellow"></i> लयबद्ध कविता बच्चों को जल्दी भाती है
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PART 4: मौलिकता और यूट्यूब प्रसारण की सहमति -->
+          <div class="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl space-y-3 font-sans text-xs">
+            <div class="flex items-center gap-2 font-bold text-hoDarkTeal text-sm font-baloo">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+              सहमति एवं मौलिकता की घोषणा (Declaration)
+            </div>
+            
+            <label class="flex items-start gap-2.5 cursor-pointer">
+              <input type="checkbox" id="checkOriginal" required class="mt-0.5 w-4 h-4 accent-hoOrange rounded">
+              <span class="text-stone-700 leading-normal">
+                मैं प्रमाणित करता/करती हूँ कि यह रचना <strong>मेरी अपनी मौलिक (Original) बाल कविता</strong> है तथा किसी अन्य की प्रतिलिपि (Copy) नहीं है।
+              </span>
+            </label>
+
+            <label class="flex items-start gap-2.5 cursor-pointer">
+              <input type="checkbox" id="checkPermission" required class="mt-0.5 w-4 h-4 accent-hoOrange rounded">
+              <span class="text-stone-700 leading-normal">
+                मैं <strong>HO HON (हो होन) यूट्यूब चैनल</strong> को इस कविता को संगीतबद्ध कर, 2D/3D एनीमेशन वीडियो बनाकर चैनल पर मेरे रचयिता क्रेडिट के साथ अपलोड करने की पूर्ण अनुमति देता/देती हूँ।
+              </span>
+            </label>
+          </div>
+
+          <!-- Primary Direct Submission Action Buttons -->
+          <div class="space-y-3 pt-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- WhatsApp direct submit button -->
+              <button type="button" id="btnSendWhatsApp" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-2xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2 group text-sm sm:text-base">
+                <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition"></i>
+                <span>WhatsApp पर भेजें (8210516739)</span>
+              </button>
+
+              <!-- Email direct submit button -->
+              <button type="button" id="btnSendEmail" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-2xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2 group text-sm sm:text-base">
+                <i class="fa-solid fa-envelope text-lg group-hover:scale-110 transition"></i>
+                <span>ईमेल द्वारा भेजें (HO HON)</span>
+              </button>
+            </div>
+
+            <!-- Alternative Utility Buttons -->
+            <div class="flex items-center justify-between gap-2 pt-1 font-sans text-xs">
+              <button type="button" id="btnSaveLocally" class="text-stone-600 hover:text-hoTeal underline flex items-center gap-1">
+                <i class="fa-regular fa-bookmark"></i> ड्राफ्ट के रूप में सहेजें
+              </button>
+
+              <button type="button" id="btnResetForm" class="text-stone-400 hover:text-red-500 transition flex items-center gap-1">
+                <i class="fa-solid fa-arrow-rotate-left"></i> फॉर्म खाली करें
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- RIGHT COLUMN: Real-Time Song Booklet Live Preview -->
+      <aside class="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+        
+        <!-- Live Preview Header -->
+        <div class="flex items-center justify-between px-2">
+          <span class="text-xs uppercase tracking-wider font-bold text-hoDarkTeal flex items-center gap-1.5">
+            <i class="fa-solid fa-compact-disc text-hoOrange fa-spin"></i>
+            गीत पूर्वावलोकन (Song Card Preview)
+          </span>
+          <span class="text-[11px] font-sans text-stone-500">चैनल पर ऐसा दिखेगा</span>
+        </div>
+
+        <!-- The Musical Song Lyric Card with Mascot Branding -->
+        <div id="songLyricCard" class="song-lyrics-bg border-4 border-amber-300 rounded-3xl p-6 sm:p-7 shadow-xl relative overflow-hidden transition-all duration-300">
+          
+          <div class="absolute -top-3 -right-3 text-6xl text-amber-200/50 select-none pointer-events-none">🎵</div>
+          <div class="absolute bottom-2 left-2 text-5xl text-amber-200/50 select-none pointer-events-none">🎶</div>
+
+          <!-- Channel Branding Tag on top of Card with mascot logo thumbnail -->
+          <div class="text-center pb-3 border-b-2 border-dashed border-amber-200">
+            <div class="flex items-center justify-center gap-2 mb-2">
+              <div class="mascot-display-card w-10 h-10 flex items-center justify-center filter drop-shadow">
+                <!-- Inbuilt SVG renders here -->
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-hoTeal text-white text-[11px] font-bold shadow-sm">
+                <i class="fa-brands fa-youtube text-red-400"></i> HO HON प्रस्तुति
+              </span>
+            </div>
+            
+            <div id="cardCategory" class="text-[11px] text-hoOrange font-semibold block mb-1">
+              प्रकृति, पशु और पक्षी • हिंदी
+            </div>
+
+            <h4 id="cardTitle" class="text-2xl sm:text-3xl font-extrabold text-hoDarkTeal leading-tight break-words">
+              कविता का शीर्षक
+            </h4>
+
+            <p id="cardPoetCredit" class="text-xs text-stone-600 mt-1.5 font-medium">
+              रचनाकार: <span class="text-hoOrange font-bold text-sm">कवि / रचनाकार का नाम</span>
+            </p>
+          </div>
+
+          <!-- The Lyrics Display Area -->
+          <div class="py-4 relative">
+            <div id="cardLyrics" class="text-stone-800 text-center text-sm sm:text-base leading-loose whitespace-pre-line min-h-[170px] max-h-[360px] overflow-y-auto px-3 custom-scrollbar italic font-serifDev">
+              जब आप बाईं ओर कविता लिखेंगे, 
+              तो HO HON का संगीतमय गीत कार्ड यहाँ तैयार होगा...
+
+              "तितली उड़ी बस पर चढ़ी,
+              गीतों की दुनिया में खो गई!"
+            </div>
+          </div>
+
+          <!-- Musical Notes Suggestion Preview -->
+          <div id="cardMusicNoteContainer" class="hidden mt-2 p-2.5 bg-white/70 border border-amber-200 rounded-xl text-xs text-stone-700">
+            <span class="font-bold text-hoDarkTeal"><i class="fa-solid fa-drum text-amber-600"></i> धुन सुझाव:</span>
+            <span id="cardMusicNoteText" class="italic"></span>
+          </div>
+
+          <!-- Card Footer with YouTube Release Note -->
+          <div class="mt-4 pt-3 border-t-2 border-dashed border-amber-200 flex items-center justify-between text-[11px] text-stone-600 font-sans">
+            <span id="cardLocation"><i class="fa-solid fa-map-pin text-rose-500"></i> स्थान</span>
+            <span class="font-bold text-hoDarkTeal">HO HON YouTube Channel</span>
+          </div>
+        </div>
+
+        <!-- Quick Share & Download Box -->
+        <div class="bg-white rounded-2xl p-4 border border-stone-200 shadow-sm flex items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 text-stone-600">
+            <i class="fa-solid fa-circle-info text-hoTeal text-base"></i>
+            <span>कविता को अपने पास सुरक्षित रखने के लिए:</span>
+          </div>
+          <button id="btnDownloadCard" type="button" class="px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-hoDarkTeal rounded-xl font-bold transition flex items-center gap-1 whitespace-nowrap">
+            <i class="fa-solid fa-file-arrow-down"></i> डाउनलोड (.txt)
+          </button>
+        </div>
+
+        <!-- Official Contact Reference Box -->
+        <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-4 text-xs text-stone-700 space-y-1.5 font-sans">
+          <div class="font-bold text-emerald-800 text-sm flex items-center gap-1.5 font-baloo">
+            <i class="fa-solid fa-headset text-base"></i> HO HON सहायता व संपर्क सूत्र:
+          </div>
+          <div class="flex items-center justify-between">
+            <span><i class="fa-brands fa-whatsapp text-emerald-600 font-bold"></i> WhatsApp:</span>
+            <strong class="text-stone-900 font-mono">+91 8210516739</strong>
+          </div>
+          <div class="flex items-center justify-between">
+            <span><i class="fa-regular fa-envelope text-red-500 font-bold"></i> ईमेल:</span>
+            <strong class="text-stone-900 font-mono text-[11px]">hoeducationalstories@gmail.com</strong>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Slide-out Drawer for Submission History -->
+  <div id="historyDrawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex justify-end transition-opacity">
+    <div class="bg-bgCream w-full max-w-md h-full shadow-2xl flex flex-col p-6 overflow-hidden border-l-4 border-hoTeal">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-amber-200">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-clock-rotate-left text-hoOrange text-xl"></i>
+          <h3 class="text-2xl font-bold text-hoDarkTeal">मेरी प्रविष्टियां (Saved Poems)</h3>
+        </div>
+        <button id="btnCloseHistory" class="text-stone-400 hover:text-stone-800 p-1 text-2xl leading-none">
+          &times;
+        </button>
+      </div>
+
+      <div id="historyListContainer" class="flex-grow overflow-y-auto py-4 space-y-3 custom-scrollbar">
+        <!-- Dynamically injected items -->
+      </div>
+
+      <div class="pt-4 border-t border-amber-200 flex justify-between items-center text-xs font-sans">
+        <button id="btnClearAllHistory" class="text-red-600 hover:underline">
+          <i class="fa-solid fa-trash-can"></i> सारा इतिहास साफ़ करें
+        </button>
+        <span class="text-stone-500" id="historyCounterLabel">कुल: ० कविताएं</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Confirmation Modal with HO HON Mascot -->
+  <div id="submitModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border-4 border-hoYellow rounded-3xl max-w-lg w-full p-6 sm:p-8 text-center shadow-2xl relative transform transition-all">
+      
+      <!-- Top Celebratory Mascot Badge -->
+      <div class="flex justify-center mb-3">
+        <div class="relative inline-block">
+          <div class="mascot-display-modal w-24 h-20 flex items-center justify-center filter drop-shadow-md animate-bounce-gentle">
+            <!-- Inbuilt SVG renders here -->
+          </div>
+          <span class="absolute -bottom-1 -right-2 bg-emerald-500 text-white rounded-full p-1 text-xs shadow">
+            <i class="fa-solid fa-check"></i>
+          </span>
+        </div>
+      </div>
+
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-hoDarkTeal mb-1">कविता प्रेषित करने के लिए तैयार!</h3>
+      <p class="text-xs uppercase tracking-widest text-hoOrange font-bold mb-4 font-sans">HO HON यूट्यूब चैनल चयन प्रक्रिया</p>
+
+      <div class="bg-amber-50 p-4 rounded-2xl text-stone-700 text-xs sm:text-sm text-left mb-6 space-y-2 border border-amber-200 font-sans">
+        <p>प्रिय कवि, आपकी कविता का प्रारूप तैयार है। कृपया नीचे दिए गए माध्यम से <strong>HO HON टीम</strong> को तुरंत भेजें:</p>
+        <ul class="space-y-1 pl-4 list-disc text-stone-600">
+          <li><strong>WhatsApp पर:</strong> 8210516739 (सीधा मैसेज खुलेगा)</li>
+          <li><strong>ईमेल पर:</strong> hoeducationalstories@gmail.com</li>
+        </ul>
+      </div>
+
+      <!-- Action buttons in modal -->
+      <div class="space-y-3">
+        <a id="modalWhatsAppLink" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm sm:text-base">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>अभी WhatsApp पर भेजें (+91 8210516739)</span>
+        </a>
+
+        <a id="modalEmailLink" href="#" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+          <i class="fa-solid fa-envelope"></i>
+          <span>ईमेल द्वारा भेजें (hoeducationalstories@gmail.com)</span>
+        </a>
+
+        <button type="button" id="btnModalClose" class="w-full border border-stone-300 hover:bg-stone-100 text-stone-700 py-2.5 px-4 rounded-xl text-xs font-semibold font-sans transition">
+          बंद करें (Close)
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-hoDarkTeal text-white text-xs sm:text-sm px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-2.5 transform translate-y-24 opacity-0 transition duration-300 pointer-events-none font-sans">
+    <i class="fa-solid fa-circle-check text-hoYellow text-base"></i>
+    <span id="toastNotificationMsg">सूचना संदेश</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-hoDarkTeal text-amber-100/80 border-t-4 border-hoOrange text-xs py-8 mt-16 font-sans">
+    <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+      <div class="flex items-center justify-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center text-sm shadow">
+          <i class="fa-brands fa-youtube"></i>
+        </span>
+        <h4 class="font-baloo text-xl font-bold text-white tracking-wide">HO HON (हो होन) YouTube Channel</h4>
+      </div>
+      
+      <p class="max-w-xl mx-auto text-amber-100/70 text-xs sm:text-sm">
+        बाल साहित्य, मातृभाषा, आदिवासी संस्कृति, लोरियों और बाल गीतों को डिजिटल युग में विश्व स्तर पर ले जाने का एक विनम्र प्रयास।
+      </p>
+
+      <div class="flex flex-wrap justify-center items-center gap-4 text-xs font-medium pt-2 text-white/90">
+        <span class="flex items-center gap-1.5"><i class="fa-brands fa-whatsapp text-emerald-400"></i> +91 8210516739</span>
+        <span class="text-amber-300">•</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-red-300"></i> hoeducationalstories@gmail.com</span>
+      </div>
+
+      <div class="text-[11px] text-amber-200/50 pt-3 border-t border-teal-800">
+        सर्वाधिकार सुरक्षित © 2026 HO HON • बच्चों की खुशियाँ और कवि की कल्पना
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Constants for Destination Details
+    const HO_HON_WHATSAPP = "918210516739";
+    const HO_HON_EMAIL = "hoeducationalstories@gmail.com";
+    const LOCAL_STORAGE_KEY = "ho_hon_poem_submissions";
+    const LOGO_STORAGE_KEY = "ho_hon_custom_logo";
+
+    // -------------------------------------------------------------
+    // Full Rich Vector SVG of the HO HON Mascot Illustration
+    // Recreates: Cheerful Orange Monster, cyan horns, friendly waving hand,
+    // cloud border, rainbow, stars, music notes, leaves, and 3D bubbly 'HO HON'
+    // -------------------------------------------------------------
+    const HO_HON_MASCOT_SVG = `
+      <svg viewBox="0 0 500 420" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Cloud border gradient -->
+          <linearGradient id="cloudEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#9DE759" />
+            <stop offset="100%" stop-color="#60C835" />
+          </linearGradient>
+
+          <!-- Monster Body Gradient -->
+          <radialGradient id="monsterGrad" cx="45%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#FF9636" />
+            <stop offset="70%" stop-color="#FF6B00" />
+            <stop offset="100%" stop-color="#E04E00" />
+          </radialGradient>
+
+          <!-- Horn Gradient -->
+          <linearGradient id="hornGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#73E4FF" />
+            <stop offset="50%" stop-color="#28B8D8" />
+            <stop offset="100%" stop-color="#0E7796" />
+          </linearGradient>
+
+          <!-- Text 'HO' Gradient -->
+          <linearGradient id="hoTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFF578" />
+            <stop offset="45%" stop-color="#FFB300" />
+            <stop offset="100%" stop-color="#FF7A00" />
+          </linearGradient>
+
+          <!-- Text 'HON' Gradient -->
+          <linearGradient id="honTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#A5F3FC" />
+            <stop offset="45%" stop-color="#38BDF8" />
+            <stop offset="100%" stop-color="#0284C7" />
+          </linearGradient>
+
+          <!-- Filter for 3D Drop Shadow -->
+          <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#07485B" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+
+        <g filter="url(#softShadow)">
+          <!-- Outer Bubbly Cloud Badge Outline -->
+          <path d="M 120 70 
+                   C 100 20, 180 5, 230 25 
+                   C 270 5, 360 15, 380 65 
+                   C 440 60, 480 130, 470 190 
+                   C 510 260, 450 350, 390 360 
+                   C 360 410, 260 415, 220 385 
+                   C 170 420, 80 390, 55 345 
+                   C 10 320, 5 240, 25 185 
+                   C -5 130, 40 70, 120 70 Z" 
+                fill="#84DC39" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" />
+
+          <!-- Inner Cloud Background -->
+          <path d="M 122 75 
+                   C 104 30, 178 15, 228 33 
+                   C 266 15, 352 24, 372 70 
+                   C 430 66, 468 132, 458 188 
+                   C 496 254, 440 338, 382 348 
+                   C 354 396, 258 400, 220 372 
+                   C 172 406, 88 376, 64 334 
+                   C 22 310, 18 234, 36 182 
+                   C 8 130, 50 75, 122 75 Z" 
+                fill="#C9F3FE" />
+
+          <!-- Sky Rainbow Arcs -->
+          <ellipse cx="250" cy="270" rx="195" ry="195" fill="none" stroke="#FF4D6D" stroke-width="14" opacity="0.9" />
+          <ellipse cx="250" cy="270" rx="181" ry="181" fill="none" stroke="#FF9E00" stroke-width="14" opacity="0.9" />
+          <ellipse cx="250" cy="270" rx="167" ry="167" fill="none" stroke="#FFDD00" stroke-width="14" opacity="0.9" />
+          <ellipse cx="250" cy="270" rx="153" ry="153" fill="none" stroke="#70E000" stroke-width="14" opacity="0.9" />
+          <ellipse cx="250" cy="270" rx="139" ry="139" fill="none" stroke="#00B4D8" stroke-width="14" opacity="0.9" />
+
+          <!-- Fluffy Sky Clouds Behind Monster -->
+          <path d="M 40 260 C 50 230, 90 230, 105 245 C 120 230, 160 235, 165 265 C 175 290, 120 310, 60 300 C 35 295, 30 275, 40 260 Z" fill="#FFFFFF" opacity="0.95" />
+          <path d="M 340 260 C 350 230, 390 230, 405 245 C 420 230, 460 235, 465 265 C 475 290, 420 310, 360 300 C 335 295, 330 275, 340 260 Z" fill="#FFFFFF" opacity="0.95" />
+
+          <!-- Decorative Stars, Leaves & Confetti -->
+          <!-- Star Left -->
+          <path d="M 95 105 L 102 120 L 118 122 L 106 133 L 110 149 L 95 140 L 80 149 L 84 133 L 72 122 L 88 120 Z" fill="#FFC300" stroke="#E09F00" stroke-width="2"/>
+          <circle cx="85" cy="125" r="2.5" fill="#FFFFFF"/>
+
+          <!-- Star Right -->
+          <path d="M 420 120 L 425 131 L 437 132 L 428 140 L 431 152 L 420 145 L 409 152 L 412 140 L 403 132 L 415 131 Z" fill="#FFC300" stroke="#E09F00" stroke-width="2"/>
+
+          <!-- Small Star Bottom -->
+          <path d="M 215 340 L 219 349 L 229 350 L 221 356 L 224 366 L 215 360 L 206 366 L 209 356 L 201 350 L 211 349 Z" fill="#FFC300"/>
+
+          <!-- Floating Green Leaves -->
+          <path d="M 60 175 C 50 160, 75 145, 85 160 C 95 175, 70 190, 60 175 Z" fill="#70E000" stroke="#38B000" stroke-width="2"/>
+          <path d="M 445 180 C 435 165, 460 150, 470 165 C 480 180, 455 195, 445 180 Z" fill="#70E000" stroke="#38B000" stroke-width="2"/>
+          <path d="M 255 365 C 248 350, 270 340, 278 355 C 285 370, 262 380, 255 365 Z" fill="#70E000" stroke="#38B000" stroke-width="2"/>
+
+          <!-- Floating Music Notes -->
+          <path d="M 360 220 C 360 215, 365 210, 375 210 L 375 230 C 372 228, 365 228, 360 232 C 355 236, 356 242, 362 242 C 368 242, 375 238, 375 230 L 375 215 L 388 212 L 388 226 C 385 224, 378 224, 374 228 C 370 232, 372 238, 378 238 C 384 238, 390 234, 390 224 L 390 205 L 370 208 Z" fill="#FF007F"/>
+
+          <!-- ================= MONSTER MASCOT ================= -->
+          <!-- Horn Left (Cyan) -->
+          <path d="M 170 115 C 160 80, 175 55, 185 50 C 190 70, 200 95, 195 125 Z" fill="url(#hornGrad)" stroke="#115468" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M 173 90 C 178 88, 186 92, 188 95" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M 178 70 C 182 68, 186 70, 188 72" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Horn Right (Cyan) -->
+          <path d="M 330 115 C 340 80, 325 55, 315 50 C 310 70, 300 95, 305 125 Z" fill="url(#hornGrad)" stroke="#115468" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M 327 90 C 322 88, 314 92, 312 95" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M 322 70 C 318 68, 314 70, 312 72" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Head Tuft (Hair fluff) -->
+          <path d="M 235 125 C 240 105, 255 105, 260 125 C 265 110, 275 112, 270 128 Z" fill="#E65100"/>
+
+          <!-- Waving Left Hand (Friendly Paw) -->
+          <g>
+            <path d="M 320 200 C 350 170, 380 130, 400 125 C 415 120, 420 140, 410 155 C 405 162, 395 170, 375 190 C 365 200, 350 215, 340 225 Z" 
+                  fill="url(#monsterGrad)" stroke="#9E3500" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Cute Paw Fingers -->
+            <circle cx="395" cy="115" r="9" fill="#FF841C" stroke="#9E3500" stroke-width="3"/>
+            <circle cx="410" cy="125" r="8" fill="#FF841C" stroke="#9E3500" stroke-width="3"/>
+            <circle cx="418" cy="140" r="7.5" fill="#FF841C" stroke="#9E3500" stroke-width="3"/>
+          </g>
+
+          <!-- Monster Body (Plump Pear Shape) -->
+          <path d="M 160 170 
+                   C 150 130, 200 115, 250 115 
+                   C 300 115, 350 130, 340 170 
+                   C 365 205, 380 260, 360 300 
+                   C 340 335, 160 335, 140 300 
+                   C 120 260, 135 205, 160 170 Z" 
+                fill="url(#monsterGrad)" stroke="#A03300" stroke-width="6" stroke-linejoin="round" />
+
+          <!-- Monster Light Orange Belly Patch -->
+          <ellipse cx="250" cy="255" rx="72" ry="50" fill="#FFAF5E" opacity="0.6"/>
+
+          <!-- Friendly Left Arm Resting over Letters -->
+          <path d="M 155 210 C 140 235, 135 270, 165 285 C 195 295, 215 285, 220 270 C 220 250, 185 240, 175 220 Z" 
+                fill="url(#monsterGrad)" stroke="#9E3500" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M 180 278 C 185 284, 195 286, 205 282" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+          <!-- Big Cute Eyes -->
+          <!-- Left Eye -->
+          <ellipse cx="218" cy="172" rx="18" ry="24" fill="#FFFFFF" stroke="#3D1300" stroke-width="4"/>
+          <ellipse cx="222" cy="172" rx="10" ry="14" fill="#2B1608"/>
+          <circle cx="218" cy="165" r="4.5" fill="#FFFFFF"/>
+          <circle cx="225" cy="176" r="2" fill="#FFFFFF"/>
+          <!-- Left Eyebrow -->
+          <path d="M 205 145 C 215 138, 230 142, 232 148" stroke="#8A2C00" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+          <!-- Right Eye -->
+          <ellipse cx="276" cy="172" rx="18" ry="24" fill="#FFFFFF" stroke="#3D1300" stroke-width="4"/>
+          <ellipse cx="272" cy="172" rx="10" ry="14" fill="#2B1608"/>
+          <circle cx="268" cy="165" r="4.5" fill="#FFFFFF"/>
+          <circle cx="275" cy="176" r="2" fill="#FFFFFF"/>
+          <!-- Right Eyebrow -->
+          <path d="M 288 145 C 278 138, 263 142, 261 148" stroke="#8A2C00" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+          <!-- Pink Cheeks -->
+          <ellipse cx="188" cy="198" rx="12" ry="7" fill="#FF4D6D" opacity="0.45"/>
+          <ellipse cx="308" cy="198" rx="12" ry="7" fill="#FF4D6D" opacity="0.45"/>
+
+          <!-- Wide Happy Open Mouth with Teeth and Tongue -->
+          <g>
+            <path d="M 200 200 C 205 250, 290 250, 295 200 C 250 195, 245 195, 200 200 Z" 
+                  fill="#540B0E" stroke="#3A0709" stroke-width="5" stroke-linejoin="round"/>
+            <!-- Cute Top Teeth -->
+            <path d="M 215 200 L 222 210 L 230 200 Z" fill="#FFFFFF" stroke="#3A0709" stroke-width="1.5"/>
+            <path d="M 265 200 L 273 210 L 280 200 Z" fill="#FFFFFF" stroke="#3A0709" stroke-width="1.5"/>
+            <!-- Happy Pink Tongue -->
+            <path d="M 225 235 C 235 218, 260 218, 270 235 C 260 248, 235 248, 225 235 Z" fill="#FF5D8F"/>
+          </g>
+
+          <!-- ================= BUBBLY 3D 'HO HON' LOGO TEXT ================= -->
+          <g filter="url(#softShadow)" transform="translate(0, 10)">
+            <!-- 3D Outlines for 'HO HON' -->
+            <!-- Letter H -->
+            <path d="M 75 255 L 98 255 L 98 285 L 128 285 L 128 255 L 151 255 L 151 340 L 128 340 L 128 308 L 98 308 L 98 340 L 75 340 Z"
+                  fill="url(#hoTextGrad)" stroke="#B34B00" stroke-width="9" stroke-linejoin="round" />
+            <!-- Letter H Highlights -->
+            <path d="M 82 260 L 90 260 L 90 330" stroke="#FFF7A1" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Letter O -->
+            <path d="M 195 250 C 165 250, 150 270, 150 298 C 150 326, 165 346, 195 346 C 225 346, 240 326, 240 298 C 240 270, 225 250, 195 250 Z 
+                     M 195 273 C 206 273, 214 282, 214 298 C 214 314, 206 323, 195 323 C 184 323, 176 314, 176 298 C 176 282, 184 273, 195 273 Z"
+                  fill="url(#hoTextGrad)" stroke="#B34B00" stroke-width="9" stroke-linejoin="round" />
+            <path d="M 185 256 C 205 256, 225 268, 228 290" stroke="#FFF7A1" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+            <!-- Letter H (in HON) -->
+            <path d="M 252 245 L 275 245 L 275 275 L 305 275 L 305 245 L 328 245 L 328 330 L 305 330 L 305 298 L 275 298 L 275 330 L 252 330 Z"
+                  fill="url(#honTextGrad)" stroke="#0369A1" stroke-width="9" stroke-linejoin="round" />
+            <path d="M 259 250 L 267 250 L 267 320" stroke="#E0F2FE" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Letter O (in HON) -->
+            <path d="M 365 240 C 335 240, 320 260, 320 288 C 320 316, 335 336, 365 336 C 395 336, 410 316, 410 288 C 410 260, 395 240, 365 240 Z 
+                     M 365 263 C 376 263, 384 272, 384 288 C 384 304, 376 313, 365 313 C 354 313, 346 304, 346 288 C 346 272, 354 263, 365 263 Z"
+                  fill="url(#honTextGrad)" stroke="#0369A1" stroke-width="9" stroke-linejoin="round" />
+            <path d="M 355 246 C 375 246, 395 258, 398 280" stroke="#E0F2FE" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+            <!-- Letter N (in HON) -->
+            <path d="M 418 245 L 442 245 L 468 295 L 468 245 L 490 245 L 490 330 L 468 330 L 440 280 L 440 330 L 418 330 Z"
+                  fill="url(#honTextGrad)" stroke="#0369A1" stroke-width="9" stroke-linejoin="round" />
+            <path d="M 425 250 L 433 250 L 433 320" stroke="#E0F2FE" stroke-width="3" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+    `;
+
+    // Function to render the mascot everywhere
+    function updateMascotAcrossPortal(customImgSrc = null) {
+      const headerContainers = document.querySelectorAll('.mascot-display-header');
+      const heroContainers = document.querySelectorAll('.mascot-display-hero');
+      const cardContainers = document.querySelectorAll('.mascot-display-card');
+      const modalContainers = document.querySelectorAll('.mascot-display-modal');
+      const resetLogoBtn = document.getElementById('resetLogoBtn');
+
+      if (customImgSrc) {
+        // User uploaded image
+        const imgTag = `<img src="${customImgSrc}" alt="HO HON Mascot Logo" class="w-full h-full object-contain filter drop-shadow">`;
+        headerContainers.forEach(c => c.innerHTML = imgTag);
+        heroContainers.forEach(c => c.innerHTML = imgTag);
+        cardContainers.forEach(c => c.innerHTML = imgTag);
+        modalContainers.forEach(c => c.innerHTML = imgTag);
+        if (resetLogoBtn) resetLogoBtn.classList.remove('hidden');
+      } else {
+        // Default Inbuilt Vector SVG
+        headerContainers.forEach(c => c.innerHTML = HO_HON_MASCOT_SVG);
+        heroContainers.forEach(c => c.innerHTML = HO_HON_MASCOT_SVG);
+        cardContainers.forEach(c => c.innerHTML = HO_HON_MASCOT_SVG);
+        modalContainers.forEach(c => c.innerHTML = HO_HON_MASCOT_SVG);
+        if (resetLogoBtn) resetLogoBtn.classList.add('hidden');
+      }
+    }
+
+    // Initialize custom logo handling
+    function initLogoUploader() {
+      const logoFileInput = document.getElementById('logoFileInput');
+      const resetLogoBtn = document.getElementById('resetLogoBtn');
+
+      // Check saved logo in localStorage
+      const savedLogo = localStorage.getItem(LOGO_STORAGE_KEY);
+      if (savedLogo) {
+        updateMascotAcrossPortal(savedLogo);
+      } else {
+        updateMascotAcrossPortal(null);
+      }
+
+      logoFileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            const dataUrl = event.target.result;
+            try {
+              localStorage.setItem(LOGO_STORAGE_KEY, dataUrl);
+            } catch (err) {
+              console.warn('Storage limit for image exceeded, keeping in-memory preview.');
+            }
+            updateMascotAcrossPortal(dataUrl);
+            triggerToast('नया HO HON लोगो सफलतापूर्वक सेट हो गया!');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      if (resetLogoBtn) {
+        resetLogoBtn.addEventListener('click', () => {
+          localStorage.removeItem(LOGO_STORAGE_KEY);
+          updateMascotAcrossPortal(null);
+          triggerToast('डिफ़ॉल्ट HO HON मैस्कॉट बहाल किया गया!');
+        });
+      }
+    }
+
+    // DOM Elements - Form Fields
+    const poetName = document.getElementById('poetName');
+    const penName = document.getElementById('penName');
+    const whatsappNum = document.getElementById('whatsappNum');
+    const poetEmail = document.getElementById('poetEmail');
+    const poetCity = document.getElementById('poetCity');
+    const poemTitle = document.getElementById('poemTitle');
+    const poemTheme = document.getElementById('poemTheme');
+    const poemLang = document.getElementById('poemLang');
+    const musicalNotes = document.getElementById('musicalNotes');
+    const poemLyrics = document.getElementById('poemLyrics');
+    const checkOriginal = document.getElementById('checkOriginal');
+    const checkPermission = document.getElementById('checkPermission');
+
+    // Counters
+    const lyricsLines = document.getElementById('lyricsLines');
+    const lyricsWords = document.getElementById('lyricsWords');
+    const lyricsChars = document.getElementById('lyricsChars');
+
+    // Preview Card Elements
+    const cardTitle = document.getElementById('cardTitle');
+    const cardCategory = document.getElementById('cardCategory');
+    const cardPoetCredit = document.getElementById('cardPoetCredit');
+    const cardLyrics = document.getElementById('cardLyrics');
+    const cardLocation = document.getElementById('cardLocation');
+    const cardMusicNoteContainer = document.getElementById('cardMusicNoteContainer');
+    const cardMusicNoteText = document.getElementById('cardMusicNoteText');
+
+    // Controls & Action Buttons
+    const btnCenterText = document.getElementById('btnCenterText');
+    const btnLeftText = document.getElementById('btnLeftText');
+    const btnSendWhatsApp = document.getElementById('btnSendWhatsApp');
+    const btnSendEmail = document.getElementById('btnSendEmail');
+    const btnSaveLocally = document.getElementById('btnSaveLocally');
+    const btnResetForm = document.getElementById('btnResetForm');
+    const btnDownloadCard = document.getElementById('btnDownloadCard');
+
+    // History Drawer Elements
+    const viewHistoryBtn = document.getElementById('viewHistoryBtn');
+    const historyDrawer = document.getElementById('historyDrawer');
+    const btnCloseHistory = document.getElementById('btnCloseHistory');
+    const historyListContainer = document.getElementById('historyListContainer');
+    const savedCountBadge = document.getElementById('savedCountBadge');
+    const historyCounterLabel = document.getElementById('historyCounterLabel');
+    const btnClearAllHistory = document.getElementById('btnClearAllHistory');
+
+    // Modal & Toast Elements
+    const submitModal = document.getElementById('submitModal');
+    const btnModalClose = document.getElementById('btnModalClose');
+    const modalWhatsAppLink = document.getElementById('modalWhatsAppLink');
+    const modalEmailLink = document.getElementById('modalEmailLink');
+    const toastNotification = document.getElementById('toastNotification');
+    const toastNotificationMsg = document.getElementById('toastNotificationMsg');
+
+    // Helper: Convert Numbers to Devanagari
+    function toDevanagari(num) {
+      const devDigits = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+      return num.toString().split('').map(d => devDigits[parseInt(d)] || d).join('');
+    }
+
+    // Helper: Show Floating Toast Message
+    function triggerToast(msg) {
+      toastNotificationMsg.textContent = msg;
+      toastNotification.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toastNotification.classList.add('translate-y-24', 'opacity-0');
+      }, 3400);
+    }
+
+    function refreshLivePreview() {
+      const name = poetName.value.trim() || 'कवि / रचनाकार का नाम';
+      const pen = penName.value.trim() ? ` '${penName.value.trim()}'` : '';
+      const title = poemTitle.value.trim() || 'कविता का शीर्षक';
+      const theme = poemTheme.value;
+      const lang = poemLang.value;
+      const lyrics = poemLyrics.value;
+      const city = poetCity.value.trim() || 'स्थान';
+      const music = musicalNotes.value.trim();
+
+      // Calculation of lines, words, chars
+      const lines = lyrics.length > 0 ? lyrics.split(/\r\n|\r|\n/).length : 0;
+      const words = lyrics.trim().length > 0 ? lyrics.trim().split(/\s+/).length : 0;
+      const chars = lyrics.length;
+
+      lyricsLines.textContent = toDevanagari(lines);
+      lyricsWords.textContent = toDevanagari(words);
+      lyricsChars.textContent = toDevanagari(chars);
+
+      // Card Updates
+      cardTitle.textContent = title;
+      cardCategory.textContent = `${theme} • ${lang}`;
+      cardPoetCredit.innerHTML = `रचनाकार: <span class="text-hoOrange font-bold text-sm">${name}${pen}</span>`;
+      cardLocation.innerHTML = `<i class="fa-solid fa-map-pin text-rose-500"></i> ${city}`;
+
+      if (lyrics.trim().length > 0) {
+        cardLyrics.textContent = lyrics;
+      } else {
+        cardLyrics.textContent = `जब आप बाईं ओर कविता लिखेंगे,\nतो HO HON का संगीतमय गीत कार्ड यहाँ तैयार होगा...\n\n"तितली उड़ी बस पर चढ़ी,\nगीतों की दुनिया में खो गई!"`;
+      }
+
+      if (music) {
+        cardMusicNoteContainer.classList.remove('hidden');
+        cardMusicNoteText.textContent = music;
+      } else {
+        cardMusicNoteContainer.classList.add('hidden');
+      }
+    }
+
+    // Attach Input Listeners
+    [poetName, penName, whatsappNum, poetEmail, poetCity, poemTitle, poemTheme, poemLang, musicalNotes, poemLyrics].forEach(el => {
+      el.addEventListener('input', refreshLivePreview);
+      el.addEventListener('change', refreshLivePreview);
+    });
+
+    // Formatting Controls for Card
+    btnCenterText.addEventListener('click', () => {
+      cardLyrics.classList.remove('text-left');
+      cardLyrics.classList.add('text-center');
+      triggerToast('पूर्वावलोकन: मध्य संरेखित');
+    });
+
+    btnLeftText.addEventListener('click', () => {
+      cardLyrics.classList.remove('text-center');
+      cardLyrics.classList.add('text-left');
+      triggerToast('पूर्वावलोकन: बायाँ संरेखित');
+    });
+
+    // Form Validator
+    function validateForm() {
+      const name = poetName.value.trim();
+      const phone = whatsappNum.value.trim();
+      const city = poetCity.value.trim();
+      const title = poemTitle.value.trim();
+      const lyrics = poemLyrics.value.trim();
+
+      if (!name) {
+        triggerToast('कृपया रचनाकार का नाम भरें!');
+        poetName.focus();
+        return false;
+      }
+      if (!phone) {
+        triggerToast('कृपया अपना WhatsApp नंबर दर्ज करें!');
+        whatsappNum.focus();
+        return false;
+      }
+      if (!city) {
+        triggerToast('कृपया अपना ज़िला/शहर व राज्य भरें!');
+        poetCity.focus();
+        return false;
+      }
+      if (!title) {
+        triggerToast('कृपया कविता का शीर्षक भरें!');
+        poemTitle.focus();
+        return false;
+      }
+      if (!lyrics) {
+        triggerToast('कृपया बाल कविता की पंक्तियाँ दर्ज करें!');
+        poemLyrics.focus();
+        return false;
+      }
+      if (!checkOriginal.checked) {
+        triggerToast('कृपया मौलिकता की घोषणा पर सही का निशान लगाएं!');
+        checkOriginal.focus();
+        return false;
+      }
+      if (!checkPermission.checked) {
+        triggerToast('कृपया HO HON चैनल पर प्रसारण सहमति स्वीकार करें!');
+        checkPermission.focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    function buildSubmissionPayload() {
+      const name = poetName.value.trim();
+      const pen = penName.value.trim() ? ` (${penName.value.trim()})` : '';
+      const phone = whatsappNum.value.trim();
+      const email = poetEmail.value.trim() || 'उपलब्ध नहीं';
+      const city = poetCity.value.trim();
+      const title = poemTitle.value.trim();
+      const theme = poemTheme.value;
+      const lang = poemLang.value;
+      const music = musicalNotes.value.trim() || 'संपादक व संगीतकार के विवेकानुसार';
+      const lyrics = poemLyrics.value.trim();
+      const now = new Date();
+      const dateStr = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+
+      // Formatted WhatsApp Text with emojis and structure
+      const waMessage = 
+`🎶 *HO HON (हो होन) बाल कविता प्रविष्टि* 🎶
+------------------------------------------
+🌟 *कविता का शीर्षक:* ${title}
+👤 *रचनाकार:* ${name}${pen}
+📍 *स्थान:* ${city}
+📱 *WhatsApp:* ${phone}
+📧 *ईमेल:* ${email}
+🎨 *विषय:* ${theme}
+🗣️ *भाषा/बोली:* ${lang}
+🥁 *संगीत/धुन सुझाव:* ${music}
+📅 *दिनांक:* ${dateStr}
+
+📜 *बाल कविता की पंक्तियाँ:*
+------------------------------------------
+${lyrics}
+------------------------------------------
+✅ *घोषणा एवं सहमति:*
+मैं प्रमाणित करता/करती हूँ कि यह मेरी मौलिक बाल कविता है और मैं इसे HO HON यूट्यूब चैनल पर संगीतबद्ध कर प्रसारित करने की अनुमति देता/देती हूँ।`;
+
+      // Email subject & body
+      const emailSubject = `HO HON बाल कविता प्रविष्टि: "${title}" - ${name}`;
+      const emailBody = 
+`नमस्ते HO HON (हो होन) टीम,
+
+मैं अपने द्वारा रचित बाल कविता आपके यूट्यूब चैनल पर बाल-गीत निर्माण हेतु प्रेषित कर रहा/रही हूँ:
+
+■ कविता का शीर्षक: ${title}
+■ रचनाकार: ${name}${pen}
+■ ज़िला व राज्य: ${city}
+■ संपर्क WhatsApp: ${phone}
+■ ईमेल: ${email}
+■ विषय / भाव: ${theme}
+■ भाषा / बोली: ${lang}
+■ संगीत/धुन सुझाव: ${music}
+
+=======================================
+बाल कविता की पंक्तियाँ:
+=======================================
+${lyrics}
+
+=======================================
+घोषणा एवं सहमति:
+=======================================
+"मैं प्रमाणित करता/करती हूँ कि यह मेरी मौलिक बाल रचना है और मैं इसे HO HON यूट्यूब चैनल पर संगीतबद्ध कर प्रसारित करने की पूर्ण अनुमति देता/देती हूँ।"
+
+सादर,
+${name}
+${city}`;
+
+      return {
+        name,
+        pen,
+        phone,
+        email,
+        city,
+        title,
+        theme,
+        lang,
+        music,
+        lyrics,
+        dateStr,
+        waMessage,
+        emailSubject,
+        emailBody
+      };
+    }
+
+    // Launch Confetti Animation
+    function fireCelebration() {
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#FFBE0B', '#FB5607', '#FF006E', '#0E7A8A', '#8338EC']
+        });
+      } catch(e) {
+        // Fallback gracefully
+      }
+    }
+
+    // 1. Send via WhatsApp
+    btnSendWhatsApp.addEventListener('click', () => {
+      if (!validateForm()) return;
+      const data = buildSubmissionPayload();
+      
+      saveToHistory(data);
+      fireCelebration();
+
+      const encodedMsg = encodeURIComponent(data.waMessage);
+      const waUrl = `https://wa.me/${HO_HON_WHATSAPP}?text=${encodedMsg}`;
+
+      // Prepare Modal Links for backup
+      modalWhatsAppLink.href = waUrl;
+      modalEmailLink.href = `mailto:${HO_HON_EMAIL}?subject=${encodeURIComponent(data.emailSubject)}&body=${encodeURIComponent(data.emailBody)}`;
+      
+      triggerToast('WhatsApp खोला जा रहा है...');
+      
+      // Directly open WhatsApp window
+      window.open(waUrl, '_blank');
+
+      // Also present the confirmation modal
+      setTimeout(() => {
+        submitModal.classList.remove('hidden');
+      }, 500);
+    });
+
+    // 2. Send via Email
+    btnSendEmail.addEventListener('click', () => {
+      if (!validateForm()) return;
+      const data = buildSubmissionPayload();
+      
+      saveToHistory(data);
+      fireCelebration();
+
+      const mailtoUrl = `mailto:${HO_HON_EMAIL}?subject=${encodeURIComponent(data.emailSubject)}&body=${encodeURIComponent(data.emailBody)}`;
+      
+      modalWhatsAppLink.href = `https://wa.me/${HO_HON_WHATSAPP}?text=${encodeURIComponent(data.waMessage)}`;
+      modalEmailLink.href = mailtoUrl;
+
+      triggerToast('ईमेल क्लाइंट खोला जा रहा है...');
+      
+      window.location.href = mailtoUrl;
+
+      setTimeout(() => {
+        submitModal.classList.remove('hidden');
+      }, 500);
+    });
+
+    // Save as Draft button
+    btnSaveLocally.addEventListener('click', () => {
+      if (!poemTitle.value.trim() && !poemLyrics.value.trim()) {
+        triggerToast('कृपया शीर्षक या कविता तो लिखें!');
+        return;
+      }
+      const data = buildSubmissionPayload();
+      saveToHistory(data);
+      triggerToast('कविता का ड्राफ्ट सहेज लिया गया है!');
+    });
+
+    // Reset Form button
+    btnResetForm.addEventListener('click', () => {
+      document.getElementById('submissionForm').reset();
+      refreshLivePreview();
+      triggerToast('फॉर्म रीसेट कर दिया गया!');
+    });
+
+    // Modal Close
+    btnModalClose.addEventListener('click', () => {
+      submitModal.classList.add('hidden');
+    });
+
+    function getStoredSubmissions() {
+      try {
+        const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+        return stored ? JSON.parse(stored) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveToHistory(item) {
+      const list = getStoredSubmissions();
+      list.unshift(item);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(list));
+      renderHistoryUI();
+    }
+
+    function renderHistoryUI() {
+      const list = getStoredSubmissions();
+      
+      if (list.length > 0) {
+        savedCountBadge.textContent = list.length;
+        savedCountBadge.classList.remove('hidden');
+      } else {
+        savedCountBadge.classList.add('hidden');
+      }
+
+      historyCounterLabel.textContent = `कुल: ${toDevanagari(list.length)} कविताएं`;
+
+      if (list.length === 0) {
+        historyListContainer.innerHTML = `
+          <div class="text-center py-16 text-stone-400 font-sans">
+            <i class="fa-solid fa-feather text-4xl mb-3 text-amber-300"></i>
+            <p class="text-sm">अभी तक कोई कविता सहेजी नहीं गई है।</p>
+          </div>
+        `;
+        return;
+      }
+
+      historyListContainer.innerHTML = list.map((item, index) => `
+        <div class="bg-white border-2 border-amber-200/90 rounded-2xl p-4 shadow-sm hover:border-hoTeal transition">
+          <div class="flex items-start justify-between gap-2 mb-1">
+            <h5 class="font-extrabold text-hoDarkTeal text-base leading-tight">${item.title}</h5>
+            <span class="text-[10px] font-sans bg-amber-100 text-stone-700 px-2 py-0.5 rounded-full whitespace-nowrap">${item.dateStr}</span>
+          </div>
+          <p class="text-xs text-stone-500 font-sans mb-2 font-medium">
+            कवि: ${item.name} • ${item.theme}
+          </p>
+          <div class="text-xs text-stone-700 font-serifDev line-clamp-3 bg-amber-50/50 p-2.5 rounded-xl border border-amber-100 whitespace-pre-line mb-3">
+            ${item.lyrics}
+          </div>
+          <div class="flex items-center justify-between font-sans text-xs">
+            <button onclick="restorePoem(${index})" class="text-hoTeal font-bold hover:underline flex items-center gap-1">
+              <i class="fa-solid fa-pen-to-square"></i> फॉर्म में लाएं
+            </button>
+            <a href="https://wa.me/${HO_HON_WHATSAPP}?text=${encodeURIComponent(item.waMessage)}" target="_blank" class="text-emerald-600 font-bold hover:underline flex items-center gap-1">
+              <i class="fa-brands fa-whatsapp"></i> भेजें
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Restore saved item into active form
+    window.restorePoem = function(idx) {
+      const list = getStoredSubmissions();
+      const p = list[idx];
+      if (!p) return;
+
+      poetName.value = p.name || '';
+      penName.value = p.pen ? p.pen.replace(/[()]/g, '').trim() : '';
+      whatsappNum.value = p.phone || '';
+      poetEmail.value = p.email !== 'उपलब्ध नहीं' ? p.email : '';
+      poetCity.value = p.city || '';
+      poemTitle.value = p.title || '';
+      poemTheme.value = p.theme || poemTheme.options[0].value;
+      poemLang.value = p.lang || poemLang.options[0].value;
+      musicalNotes.value = p.music !== 'संपादक व संगीतकार के विवेकानुसार' ? p.music : '';
+      poemLyrics.value = p.lyrics || '';
+
+      checkOriginal.checked = true;
+      checkPermission.checked = true;
+
+      refreshLivePreview();
+      historyDrawer.classList.add('hidden');
+      triggerToast('कविता फॉर्म में लोड कर दी गई है!');
+    };
+
+    // Clear History
+    btnClearAllHistory.addEventListener('click', () => {
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
+      renderHistoryUI();
+      triggerToast('इतिहास साफ़ कर दिया गया!');
+    });
+
+    // History Drawer Open / Close
+    viewHistoryBtn.addEventListener('click', () => {
+      historyDrawer.classList.remove('hidden');
+    });
+
+    btnCloseHistory.addEventListener('click', () => {
+      historyDrawer.classList.add('hidden');
+    });
+
+    // Download Card as Text file
+    btnDownloadCard.addEventListener('click', () => {
+      const data = buildSubmissionPayload();
+      if (!data.title || !data.lyrics) {
+        triggerToast('कृपया शीर्षक और कविता दर्ज करें!');
+        return;
+      }
+
+      const fileContent = 
+`======================================================
+HO HON (हो होन) यूट्यूब चैनल - बाल कविता कार्ड
+======================================================
+शीर्षक: ${data.title}
+रचनाकार: ${data.name}${data.pen}
+स्थान: ${data.city}
+संपर्क WhatsApp: ${data.phone}
+ईमेल: ${data.email}
+विषय/भाव: ${data.theme}
+भाषा/बोली: ${data.lang}
+संगीत/धुन सुझाव: ${data.music}
+दिनांक: ${data.dateStr}
+------------------------------------------------------
+बाल कविता की पंक्तियाँ:
+------------------------------------------------------
+${data.lyrics}
+------------------------------------------------------
+घोषणा एवं सहमति:
+"मैं प्रमाणित करता/करती हूँ कि यह मेरी मौलिक बाल रचना है और 
+मैं इसे HO HON यूट्यूब चैनल पर संगीतबद्ध कर प्रसारित करने की 
+पूर्ण अनुमति देता/देती हूँ।"
+======================================================
+संपर्क सूत्र:
+WhatsApp: +91 8210516739
+Email: hoeducationalstories@gmail.com
+======================================================`;
+
+      const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+      const dlLink = document.createElement('a');
+      dlLink.href = URL.createObjectURL(blob);
+      dlLink.download = `HO_HON_${data.title.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(dlLink);
+      dlLink.click();
+      document.body.removeChild(dlLink);
+      triggerToast('कविता फाइल डाउनलोड हो गई!');
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initLogoUploader();
+      refreshLivePreview();
+      renderHistoryUI();
+    });
+  </script>
+</body>
+</html>
+```
